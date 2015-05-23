@@ -12,6 +12,7 @@ public class Main
 
     // Declare the Game
     private static Game Game;
+    public static JFrame j;
 
     public static void main(String[] args) throws InterruptedException 
     {
@@ -20,7 +21,7 @@ public class Main
 
         // Set up the JFrame. This is a container for our
         // game JPanel.
-        JFrame j = new JFrame();
+        j = new JFrame();
         j.setTitle("Defend the Keep");    
         j.setSize(FRAME_WIDTH, FRAME_HEIGHT);
 
@@ -35,8 +36,7 @@ public class Main
 
         // Start the game
         Game.playGame();
-        j.setSize(FRAME_WIDTH + 1, FRAME_HEIGHT + 1);
-        j.setSize(FRAME_WIDTH, FRAME_HEIGHT);
+
     }
 
    /* // This will allow us to kill the sound nicely when the game exits.
