@@ -58,9 +58,9 @@ public class Game extends JPanel implements ActionListener, KeyListener
         sap = new Sounds("Music.wav");
         if(!(sap.playing)){
         	//Thread.sleep(1000);
-        	System.out.println("Yep");
+        	
         	sap =  new Sounds("Music.wav");
-        	System.out.println("Nope");
+        
         }
         
     }
