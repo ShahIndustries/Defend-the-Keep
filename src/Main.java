@@ -1,4 +1,5 @@
 import javax.swing.JFrame;
+
 import java.awt.Color;
 
 public class Main
@@ -12,7 +13,7 @@ public class Main
     // Declare a bouncy ball object
     private static Game Game;
 
-    public static void main(String[] args) 
+    public static void main(String[] args) throws InterruptedException 
     {
         // Create the bouncy ball game object
         Game = new Game();
@@ -25,7 +26,7 @@ public class Main
 
         //j.setBackground(Color.BLACK);
         j.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        // Add the bouncy ball game object which is a JPanel
+        // Adds Game
         j.add(Game);
 
         j.setVisible(true);

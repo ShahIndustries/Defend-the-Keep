@@ -55,7 +55,7 @@ public class Sounds implements Runnable
     private static final int EXTERNAL_BUFFER_SIZE = 128000;
 
     private Thread t;
-    private volatile boolean playing = true;
+    public volatile boolean playing = true;
     private String audioFile;
     private SourceDataLine line;
     private AudioInputStream audioInputStream;

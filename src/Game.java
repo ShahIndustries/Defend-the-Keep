@@ -37,7 +37,7 @@ public class Game extends JPanel implements ActionListener, KeyListener
 
     private boolean active;
 
-    public void playGame()
+    public void playGame() throws InterruptedException
     {
         active = true;
 
@@ -56,6 +56,10 @@ public class Game extends JPanel implements ActionListener, KeyListener
         // Start the background music
      
         sap = new Sounds("Music.wav");
+        if(!(sap.playing)){
+        	Thread.sleep(1000);
+        	
+        }
         
     }
 
