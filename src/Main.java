@@ -10,12 +10,12 @@ public class Main
     // This is the height of the title bar at the top of the frame
     public final static int TITLE_HEIGHT = 20;
 
-    // Declare a bouncy ball object
+    // Declare the Game
     private static Game Game;
 
     public static void main(String[] args) throws InterruptedException 
     {
-        // Create the bouncy ball game object
+        // Create the Game
         Game = new Game();
 
         // Set up the JFrame. This is a container for our
@@ -31,7 +31,7 @@ public class Main
 
         j.setVisible(true);
 
-        attachShutDownHook();
+       // attachShutDownHook();
 
         // Start the game
         Game.playGame();
@@ -39,7 +39,7 @@ public class Main
         j.setSize(FRAME_WIDTH, FRAME_HEIGHT);
     }
 
-    // This will allow us to kill the sound nicely when the game exits.
+   /* // This will allow us to kill the sound nicely when the game exits.
     // *** Not working as intended right now ***
     public static void attachShutDownHook(){
         Runtime.getRuntime().addShutdownHook(new Thread() {
@@ -48,5 +48,5 @@ public class Main
                Game.stopGame();
             }
         });
-    }
+    }*/
 }

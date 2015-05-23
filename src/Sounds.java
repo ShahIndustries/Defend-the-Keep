@@ -230,7 +230,7 @@ public class Sounds implements Runnable
                 //                {
                 //                    e.printStackTrace();
                 //                }  
-            	run();
+            	//run();
             }
 
             //            if (! playing)
