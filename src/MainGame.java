@@ -24,6 +24,7 @@ public class MainGame extends JPanel implements MouseListener {
 	private boolean UpMove = false;
 	private boolean DownMove = false;
 	private JLabel counter = new JLabel();
+	private JLabel picture = new JLabel(new ImageIcon("Archer.png"));	
 	private Game game;
 	public MainGame(Game game){
 		run();
@@ -39,6 +40,10 @@ public class MainGame extends JPanel implements MouseListener {
 		counter.setVisible(true);
 		//addMouseListener(this);
 		this.add(counter);
+		picture.setBounds(886,360,200,200);
+		picture.setFont(picture.getFont().deriveFont(18f));
+		this.add(picture);
+		/*
 	    ImageIcon id = new ImageIcon("Archer.png");
         Image = id.getImage();
         imageX = 886;
@@ -47,8 +52,11 @@ public class MainGame extends JPanel implements MouseListener {
 		setVisible(true);
 		setEnabled(true);
 		update(getGraphics());
-		repaint();
+		repaint();*/
 	}
+	/**
+	 * MAKE A JLABEL FOR THE CHARACTER MODELS
+	 */
 	public void paintComponent(Graphics g)
 	    {
 		 System.out.println("Trig");
