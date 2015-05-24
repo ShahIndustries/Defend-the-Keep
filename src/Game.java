@@ -13,6 +13,7 @@ import javax.sound.sampled.AudioInputStream;
 import javax.sound.sampled.AudioSystem;
 import javax.sound.sampled.Clip;
 import javax.swing.ImageIcon;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.Timer;
 
@@ -21,6 +22,12 @@ import java.awt.Image;
 // Bouncy ball is a JPanel and implements ActionListener for timer events
 public class Game extends JPanel implements ActionListener, KeyListener
 {
+
+	public Game(){
+	
+	
+	}
+	
 	// This is needed to get rid of the JPanel warning
 	private static final long serialVersionUID = 1L;
 
@@ -47,6 +54,7 @@ public class Game extends JPanel implements ActionListener, KeyListener
 	public static ImageIcon id;
 	public static boolean IsOnTitleScreen = false;
 	public static boolean IsOnControlScreen = false;
+	public MainGame start;
 	public void playGame() throws InterruptedException
 	{
 
@@ -85,7 +93,10 @@ public class Game extends JPanel implements ActionListener, KeyListener
 				ImageIcon id1 = new ImageIcon("Controls.png");
 				CompProject = id1.getImage();
 				System.out.println("triggered");
+				start = new MainGame(this);
+				this.add(start.getJLabel());
 				this.repaint();
+				
 			}
 			if(gameFlag){
 				IsOnTitleScreen = false;
@@ -94,6 +105,7 @@ public class Game extends JPanel implements ActionListener, KeyListener
 				CompProject = id2.getImage();
 				System.out.println("triggered");
 				this.repaint();
+				
 			}
 			if(menuFlag){
 				IsOnControlScreen = false;
