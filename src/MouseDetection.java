@@ -26,8 +26,8 @@ public class MouseDetection extends MouseAdapter {
 	public MouseDetection(Game game){
 		this.game = game;
 	}
-
 	public void mousePressed(MouseEvent e) {
+		    
 		//check CONTROLS button
 		//int thing = e.getX();
 		//int thing2 = e.getY();
@@ -51,6 +51,9 @@ public class MouseDetection extends MouseAdapter {
 				//System.out.println("Control pressed");
 				game.menuFlag = true;
 			}
+		}
+		else if(Game.IsOnStartScreen){
+			
 		}
 	}
 }
