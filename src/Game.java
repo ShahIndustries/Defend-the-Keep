@@ -26,7 +26,7 @@ public class Game extends JPanel implements ActionListener, KeyListener
 
 
 	// Declare a player for the background music
-	private Sounds sap;
+	private BackgroundMusic sap;
 
 
 	//Background
@@ -43,7 +43,8 @@ public class Game extends JPanel implements ActionListener, KeyListener
 	public static boolean gameFlag = false;
 	public boolean GamePlaying = true;
 	public boolean MusicPlaying = true;
-
+	public static ImageIcon id;
+	public static boolean IsOnTitleScreen = false;
 	public void playGame() throws InterruptedException
 	{
 
@@ -51,8 +52,10 @@ public class Game extends JPanel implements ActionListener, KeyListener
 
 		// Create the Image from the file.
 
-		ImageIcon id = new ImageIcon("CompProject.png");
+		id = new ImageIcon("CompProject.png");
 		CompProject = id.getImage();
+		IsOnTitleScreen = true;
+		
 
 		// These things need to be done as part of dealing with 
 		// keyboard input. 'Focus' means that your application is
@@ -67,27 +70,25 @@ public class Game extends JPanel implements ActionListener, KeyListener
 
 		// Start the background music
 
-		sap = new Sounds("Music.wav");
+		sap = new BackgroundMusic("Music.wav");
 
 
 		while(GamePlaying){
-			if(!(sap.playing)){
-				//Thread.sleep(1000);
-				sap =  new Sounds("Music.wav");
 
-			}
 			if(controlsFlag){
+				IsOnTitleScreen = false;
 				controlsFlag = false;
-				ImageIcon id1 = new ImageIcon("Controlls.png");
-				CompProject = id.getImage();
-				System.out.println("triggered");
+				ImageIcon id1 = new ImageIcon("Controls.png");
+				CompProject = id1.getImage();
+				//System.out.println("triggered");
 				this.repaint();
 			}
 			if(gameFlag){
+				IsOnTitleScreen = false;
 				gameFlag = false;
 				ImageIcon id2 = new ImageIcon("Start.png");
-				CompProject = id.getImage();
-				System.out.println("triggered");
+				CompProject = id2.getImage();
+				//System.out.println("triggered");
 				this.repaint();
 			}
 		}
@@ -102,7 +103,7 @@ public class Game extends JPanel implements ActionListener, KeyListener
 	// This is the method that is called when the JPanel repaint method is called.
 	public void paintComponent(Graphics g)
 	{
-		System.out.println("test");
+		//System.out.println("test");
 		
 		// Calling the superclass method will essentially clear the panel
 		// so that you can now put what you want.

@@ -1,6 +1,8 @@
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
+import javax.swing.ImageIcon;
+
 
 public class MouseDetection extends MouseAdapter {
 	final static int START_LOW_X = 48;
@@ -14,17 +16,18 @@ public class MouseDetection extends MouseAdapter {
 	final static int CONTROLS_HIGH_Y = 426;
 	public void mousePressed(MouseEvent e) {
 		//check CONTROLS button
-		
-		if(e.getX() > (CONTROLS_LOW_X) && e.getX() < (CONTROLS_HIGH_X) && e.getY() > (CONTROLS_LOW_Y) && e.getY() < (CONTROLS_HIGH_Y))
-		{
-			//System.out.println("Control pressed");
-			Game.controlsFlag = true;
-		}
-		//check start button
-		else if(e.getX() > (START_LOW_X) && e.getX() < (START_HIGH_X) && e.getY() > (START_LOW_Y) && e.getY() < (START_HIGH_Y))
-		{
-			//System.out.println("Start pressed");
-			Game.gameFlag = true;
+		if(Game.IsOnTitleScreen){
+			if(e.getX() > (CONTROLS_LOW_X) && e.getX() < (CONTROLS_HIGH_X) && e.getY() > (CONTROLS_LOW_Y) && e.getY() < (CONTROLS_HIGH_Y))
+			{
+				//System.out.println("Control pressed");
+				Game.controlsFlag = true;
+			}
+			//check start button
+			else if(e.getX() > (START_LOW_X) && e.getX() < (START_HIGH_X) && e.getY() > (START_LOW_Y) && e.getY() < (START_HIGH_Y))
+			{
+				//System.out.println("Start pressed");
+				Game.gameFlag = true;
+			}
 		}
 	}
 }
