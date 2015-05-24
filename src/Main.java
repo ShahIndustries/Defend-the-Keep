@@ -11,42 +11,33 @@ public class Main
     public final static int TITLE_HEIGHT = 20;
 
     // Declare the Game
-    private static Game Game;
+    private Game Game;
     public static JFrame j;
-
-    public static void main(String[] args) throws InterruptedException 
-    {
-        // Create the Game
-        Game = new Game();
-
-        // Set up the JFrame. This is a container for our
-        // game JPanel.
-        j = new JFrame();
+    
+    /**
+     * Constructor of Main which creates the Game object
+     */
+    public Main(){
+    	Game = new Game();
+    	j = new JFrame();
         j.setTitle("Defend the Keep");    
         j.setSize(FRAME_WIDTH, FRAME_HEIGHT);
-
         //j.setBackground(Color.BLACK);
         j.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         // Adds Game
         j.add(Game);
-
         j.setVisible(true);
-
        // attachShutDownHook();
-
         // Start the game
-        Game.playGame();
-
+        try {
+			Game.playGame();
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
     }
-
-   /* // This will allow us to kill the sound nicely when the game exits.
-    // *** Not working as intended right now ***
-    public static void attachShutDownHook(){
-        Runtime.getRuntime().addShutdownHook(new Thread() {
-            @Override
-            public void run() {
-               Game.stopGame();
-            }
-        });
-    }*/
+    public static void main(String[] args) throws InterruptedException 
+    {
+    	new Main();
+    }
 }

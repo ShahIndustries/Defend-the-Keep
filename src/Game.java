@@ -39,12 +39,14 @@ public class Game extends JPanel implements ActionListener, KeyListener
 	private Image CompProject;
 
 	private boolean active;
-	public static boolean controlsFlag = false;
-	public static boolean gameFlag = false;
+	public boolean controlsFlag = false;
+	public boolean gameFlag = false;
+	public boolean menuFlag = false;
 	public boolean GamePlaying = true;
 	public boolean MusicPlaying = true;
 	public static ImageIcon id;
 	public static boolean IsOnTitleScreen = false;
+	public static boolean IsOnControlScreen = false;
 	public void playGame() throws InterruptedException
 	{
 
@@ -56,6 +58,7 @@ public class Game extends JPanel implements ActionListener, KeyListener
 		CompProject = id.getImage();
 		IsOnTitleScreen = true;
 		
+		
 
 		// These things need to be done as part of dealing with 
 		// keyboard input. 'Focus' means that your application is
@@ -64,7 +67,7 @@ public class Game extends JPanel implements ActionListener, KeyListener
 		setFocusable(true);
 		setFocusTraversalKeysEnabled(false);
 		requestFocus();
-		addMouseListener(new MouseDetection());
+		addMouseListener(new MouseDetection(this));
         Main.j.setSize(Main.FRAME_WIDTH + 1, Main.FRAME_HEIGHT + 1);
         Main.j.setSize(Main.FRAME_WIDTH, Main.FRAME_HEIGHT);
 
@@ -74,21 +77,31 @@ public class Game extends JPanel implements ActionListener, KeyListener
 
 
 		while(GamePlaying){
-
+			System.out.println(controlsFlag);
 			if(controlsFlag){
 				IsOnTitleScreen = false;
 				controlsFlag = false;
+				IsOnControlScreen = true;
 				ImageIcon id1 = new ImageIcon("Controls.png");
 				CompProject = id1.getImage();
-				//System.out.println("triggered");
+				System.out.println("triggered");
 				this.repaint();
 			}
 			if(gameFlag){
 				IsOnTitleScreen = false;
 				gameFlag = false;
-				ImageIcon id2 = new ImageIcon("Start.png");
+				ImageIcon id2 = new ImageIcon("GameBackground.png");
 				CompProject = id2.getImage();
-				//System.out.println("triggered");
+				System.out.println("triggered");
+				this.repaint();
+			}
+			if(menuFlag){
+				IsOnControlScreen = false;
+				menuFlag = false;
+				IsOnTitleScreen = true;
+				ImageIcon id = new ImageIcon("CompProject.png");
+				CompProject = id.getImage();
+				System.out.println("triggered");
 				this.repaint();
 			}
 		}

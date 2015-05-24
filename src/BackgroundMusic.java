@@ -16,7 +16,6 @@ public class BackgroundMusic implements LineListener {
 	
     @SuppressWarnings("unused")
 	private String audioFileName;
-    private boolean playCompleted;
     private Clip audioClip;
     private AudioFormat audioFormat;
     private AudioInputStream audioStream;
@@ -49,20 +48,10 @@ public class BackgroundMusic implements LineListener {
             audioClip = (Clip) AudioSystem.getLine(info);    
             audioClip.addLineListener(this);   
             audioClip.open(audioStream);   
-            audioClip.loop(10000);
+            audioClip.loop(111);
+        }
                            
-            while (!playCompleted) {
-            	// wait for the playback completes
-                try {
-                	Thread.sleep(1000);
-                    } 
-                	catch (InterruptedException ex) {
-                        ex.printStackTrace();
-                    }
-                }                 
-                audioClip.close();
-            } 
-        
+
             catch (UnsupportedAudioFileException ex) {
                 System.out.println("The specified audio file is not supported.");
                 ex.printStackTrace();
@@ -89,7 +78,7 @@ public class BackgroundMusic implements LineListener {
             System.out.println("Playback started.");             
         } 
         else if (type == LineEvent.Type.STOP) {
-            playCompleted = true;
+            
             System.out.println("Playback completed.");       
         }		
 	}
