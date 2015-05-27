@@ -32,18 +32,18 @@ public class MainGame extends JPanel implements MouseListener {
 	}
 
 	public void run(){
-		System.out.println("In Run");
-		x = "Score : " + Integer.toString(Score);
-		counter.setText(x);
-		counter.setBounds(400, 11, 360, 60);
-		counter.setFont(counter.getFont().deriveFont(55f));
-		counter.setVisible(true);
+
 		//addMouseListener(this);
-		this.add(counter);
-		picture.setBounds(886,360,200,200);
+		
+	
+		/*picture.setBounds(886,360,200,200);
 		picture.setFont(picture.getFont().deriveFont(18f));
+		picture.setVisible(true);
+		picture.setEnabled(true);
 		this.add(picture);
-		/*
+		update(getGraphics());
+		System.out.println("In Run3");
+		*/
 	    ImageIcon id = new ImageIcon("Archer.png");
         Image = id.getImage();
         imageX = 886;
@@ -52,7 +52,9 @@ public class MainGame extends JPanel implements MouseListener {
 		setVisible(true);
 		setEnabled(true);
 		update(getGraphics());
-		repaint();*/
+		repaint();
+		System.out.println("In Run");
+
 	}
 	/**
 	 * MAKE A JLABEL FOR THE CHARACTER MODELS
