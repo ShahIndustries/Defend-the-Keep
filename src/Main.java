@@ -12,31 +12,28 @@ public class Main extends JFrame
     public final static int TITLE_HEIGHT = 20;
 
     // Declare the Game
-    private Game Game;
-    private Container container;
+    private Game game;
  
     
     /**
      * Constructor of Main which creates the Game object
      */
     public Main(){
-     Game = new Game(this);
-     
+      
         this.setTitle("Defend the Keep");           
         this.setSize(FRAME_WIDTH, FRAME_HEIGHT);
-        this.setResizable(false);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        container = this.getContentPane();       
-        container.add(Game); // Adds Game        
+       // this.setLayout(null);
+      
+                 
+        game = new Game(this);   
+        this.add(game);
         this.setVisible(true);
-        setEnabled(true);
-              
-        try {
-   Game.playGame(); // Start the game
-  } 
-        catch (InterruptedException e) {   
-   e.printStackTrace();
-  }
+        game.playGame();
+      
+       
+ 
+        
     }
     
     public static void main(String[] args) throws InterruptedException 
