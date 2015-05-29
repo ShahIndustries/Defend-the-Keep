@@ -25,9 +25,9 @@ public class Game extends JPanel implements ActionListener, KeyListener
 	public static boolean IsOnTitleScreen = false;
 	public static boolean IsOnControlScreen = false;
 	public static boolean IsOnStartScreen = false;
-	
+
 	public MainGame start;
-	
+
 	private JLabel counter = new JLabel();
 	private String counterText;
 	private int Score = 0;
@@ -35,27 +35,27 @@ public class Game extends JPanel implements ActionListener, KeyListener
 	private boolean UpMove = false;
 	private boolean DownMove = false;
 	private boolean active;
-	
+
 	private Image knightImage; //Knight
 	private Image archerImage; //Archer
 	private Image CompProject; //Game Background
-	
+
 	private int imageX; //Archer X Position
 	private int imageY; //Archer Y Position
 	private int imageX2; //Knight X Position
 	private int imageY2; //Knight Y Position
-	
+
 	@SuppressWarnings("unused")
 	private int BackgroundX; //Super JFrame WIDTH
 	@SuppressWarnings("unused")
 	private int BackgroundY; //Super JFrame HEIGHT
-	
+
 	@SuppressWarnings("unused")
 	private BackgroundMusic sap; // Declare a player for the background music
 	Main main;
-	
 
-	
+
+
 	public Game(Main main){
 		this.main = main;
 		CompProject = ImageConverter.getConvertedImage("CompProject.png");
@@ -64,7 +64,7 @@ public class Game extends JPanel implements ActionListener, KeyListener
 	}
 
 	public void playGame(){
-		
+
 		active = true;
 		IsOnTitleScreen = true;
 
@@ -117,10 +117,10 @@ public class Game extends JPanel implements ActionListener, KeyListener
 	public void stopGame(){
 		active = false;
 	}
-	
+
 	public void MainGame(){
 		MainGame = true;
-		
+
 		//Counter
 		counterText = "Score : " + Integer.toString(Score);
 		counter.setText(counterText);
@@ -128,18 +128,18 @@ public class Game extends JPanel implements ActionListener, KeyListener
 		counter.setFont(counter.getFont().deriveFont(55f));
 		//System.out.println(counter.getSize());
 		this.add(counter);
-		
+
 		//Images
 		CompProject = ImageConverter.getConvertedImage("GameBackground.png");
-        
+
 		archerImage = ImageConverter.getConvertedImage("Archer.png");
-        imageX = 886;
+		imageX = 886;
 		imageY = 360;
 
-        knightImage = ImageConverter.getConvertedImage("Knight.png");
-        imageX2 = 400;
+		knightImage = ImageConverter.getConvertedImage("Knight.png");
+		imageX2 = 400;
 		imageY2 = 400;
-		
+
 		//paintComponent method
 		repaint();
 		//System.out.println("In Run");
@@ -161,43 +161,53 @@ public class Game extends JPanel implements ActionListener, KeyListener
 		}
 	}
 
-    public void keyPressed(KeyEvent e) {
-        int key = e.getKeyCode();
+	public void keyPressed(KeyEvent e) {
+		int key = e.getKeyCode();
 
-        // Check if the left or right arrows were pressed so that we
-        // will start moving the rocket
-        if (key == KeyEvent.VK_UP) {
-            //UpMove = true;
-            imageY-=10;
-            repaint();
-            //System.out.println(UpMove);
-        }
-        else if (key == KeyEvent.VK_DOWN) {
-            //DownMove = true;           
-            imageY+=10;
-            repaint();
-            //System.out.println(DownMove);
-        }
-    }
-	
-    public void keyReleased(KeyEvent e) {
-        int key = e.getKeyCode();
+		// Check if the left or right arrows were pressed so that we
+		// will start moving the rocket
+		if (key == KeyEvent.VK_UP) {
+			//UpMove = true;
+			if(imageY > 25 && imageY+25 > 25){
+			imageY-=25;
+			repaint();
+			}
+			else{
+				
+			}
+			//System.out.println(UpMove);
+		}
+		else if (key == KeyEvent.VK_DOWN) {
+			//DownMove = true;   
+			if(imageY < 730 && imageY + 25 < 730){
+			imageY+=25;
+			repaint();
+			}
+			else{
+				
+			}
+			//System.out.println(DownMove);
+		}
+	}
 
-        // Check if the left or right arrows were released so that we
-        // will stop moving the rocket
-        if (key == KeyEvent.VK_UP) {
-            //UpMove = false;
-        }
-        if (key == KeyEvent.VK_DOWN) {
-            //DownMove = false;
-        }
-    }
-	
+	public void keyReleased(KeyEvent e) {
+		int key = e.getKeyCode();
+
+		// Check if the left or right arrows were released so that we
+		// will stop moving the rockets
+		if (key == KeyEvent.VK_UP) {
+			//UpMove = false;
+		}
+		if (key == KeyEvent.VK_DOWN) {
+			//DownMove = false;
+		}
+	}
+
 	public void keyTyped(KeyEvent e) {
 		// We don't need this because we use 'pressed' and 'released'
 		// to track the keys.
 	}
-	
+
 	public void mouseReleased(MouseEvent e) {
 
 	}
@@ -205,6 +215,8 @@ public class Game extends JPanel implements ActionListener, KeyListener
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
+		
+		
 	}
 
 }
